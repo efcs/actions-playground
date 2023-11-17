@@ -2,10 +2,8 @@ name: C++ Build and run
 
 on:
   push:
-    paths:
-        - 'tag-file.txt'
-        - '*.cpp'
-        - '.github/workflows/cpp_build_and_run.yml'
+    branches:
+      - 'main'
   pull_request:
     paths:
       - 'tag-file.txt'
