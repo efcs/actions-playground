@@ -1,0 +1,15 @@
+name: C++ Build and run
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install dependencies
+      run: echo g++ --version
+    - name: Build
+      run: g++ -o output your_file.cpp
+    - name: Run
+      run: ./output
