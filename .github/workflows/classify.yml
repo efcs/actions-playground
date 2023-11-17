@@ -1,0 +1,19 @@
+
+on:
+  workflow_ca
+
+steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v2
+    with:
+      fetch-depth: 0  # fetch all history so PR diff has context
+
+  - name: Get Changed Files
+    id: changed_files
+    uses: jitterbit/get-changed-files@v1
+
+  - name: Diff Pull Request
+    id: diff_pr
+    run: |
+      echo "Changed files: ${{ steps.changed_files.outputs.all }}"
+      echo "::set-output name=changed_files::${{ steps.changed_files.outputs.all }}"
